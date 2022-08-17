@@ -39,7 +39,7 @@ const Cuisine: React.FC = () => {
     };
     getCuisine();
   }, [setData, params]);
-  console.log(data);
+ 
   return (
     <Grid>
       {data.map((recipe) => {
