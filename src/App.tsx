@@ -1,5 +1,11 @@
+import Pages from "./pages/Pages";
+
 const App: React.FC = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Pages />
+    </div>
+  );
 };
 
 export default App;
