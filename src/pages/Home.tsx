@@ -1,13 +1,17 @@
 import Veggie from "../components/Veggie";
 import Popular from "../components/Popular";
 
+import styled from "styled-components";
 const Home = () => {
   return (
-    <div>
+    <Slides>
       <Veggie />
       <Popular />
-    </div>
+    </Slides>
   );
 };
 
+const Slides = styled.div`
+  margin-inline: 20%;
+`;
 export default Home;
