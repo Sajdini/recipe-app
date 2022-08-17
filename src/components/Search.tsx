@@ -1,13 +1,18 @@
+//react hooks
 import React, { useState } from "react";
+//react router
+import { useNavigate } from "react-router-dom";
+
+//styled components and icons
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
-
 const Search = () => {
   const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(e);
+    if (input.length > 0) navigate("/searched/" + input);
   };
 
   return (
