@@ -4,40 +4,21 @@ import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { fetchedData } from "../Types";
 import CardComponent from "./Card";
+import { useHttpClient } from "../hooks/http-hook";
+
 const Popular: React.FC = () => {
-  const [data, setData] = useState([] as fetchedData[]);
+  const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
-    const getPopular = async () => {
-      //as spoonacular api calls as very limited, i had to cache the response in localstorage.
-      const check = localStorage.getItem("popular");
+    getRecipe(
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`,
+      "popular"
+    );
+  }, [getRecipe]);
 
-      //checking if the data is already stored in localstorage. If yes, i set data state to that. If not, i make the api call
-      if (check) {
-        setData(JSON.parse(check));
-      } else {
-        try {
-          const response = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-          );
-
-          if (response.ok) {
-            const responseData = await response.json();
-            localStorage.setItem(
-              "popular",
-              JSON.stringify(responseData.recipes)
-            );
-          } else {
-            throw new Error("Something went wrong");
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    };
-    getPopular();
-  }, [setData]);
-
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <div>
       <Wrapper>
@@ -51,9 +32,16 @@ const Popular: React.FC = () => {
             gap: "5rem",
           }}
         >
-          {data.map((recipe) => {
+          {data.map((recipe: fetchedData) => {
             const { title, image, id } = recipe;
-            return <CardComponent key={id} title={title} image={image} link={`/recipe/${id}`} />;
+            return (
+              <CardComponent
+                key={id}
+                title={title}
+                image={image}
+                link={`/recipe/${id}`}
+              />
+            );
           })}
         </Splide>
       </Wrapper>
@@ -61,8 +49,6 @@ const Popular: React.FC = () => {
   );
 };
 
-const Wrapper = styled.div`
-  margin: 4rem 0;
-`;
+const Wrapper = styled.div``;
 
 export default Popular;

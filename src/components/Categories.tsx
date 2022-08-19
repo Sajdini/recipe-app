@@ -33,9 +33,10 @@ const Categories: React.FC = () => {
 
 const CategoriesContainer = styled.div`
   display: flex;
-  margin: 2rem auto;
+  margin: 1rem 0;
   justify-content: center;
-  gap: 8rem;
+  gap: 3rem;
+  justify-self: flex-end;
 `;
 
 const Category = styled(NavLink)`
@@ -44,7 +45,7 @@ const Category = styled(NavLink)`
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  padding: 1rem;
+  padding: 0 1rem;
   transition: active 400ms;
   border-radius: 20px;
   svg {

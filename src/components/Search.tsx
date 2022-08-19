@@ -1,24 +1,45 @@
 //react hooks
-import React, { useState } from "react";
+import React, { useState, useEffect, SyntheticEvent } from "react";
 //react router
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
 //styled components and icons
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
+// type
+import { Suggestions } from "../Types";
+import AutoComplete from "./AutoComplete";
+
 const Search = () => {
   const [input, setInput] = useState("");
+  const [data, setData] = useState([] as Suggestions[]);
   const navigate = useNavigate();
+
+  // suggestions fetch
+  useEffect(() => {
+    if (input.length > 3) {
+      fetch(
+        `https://api.spoonacular.com/recipes/autocomplete?number=5&query=${input}&apiKey=${process.env.REACT_APP_API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((data) => setData(data));
+    }
+  }, [input]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.length > 0) navigate("/searched/" + input);
+    setData([]);
+  };
+
+  // this clickhandler servers only to close suggestions list
+  const clickHandler = (e: SyntheticEvent) => {
+    setData([]);
   };
 
   return (
     <Form onSubmit={submitHandler}>
+      <FaSearch />
       <div>
-        <FaSearch />
         <Input
           type="text"
           placeholder="Search"
@@ -27,36 +48,43 @@ const Search = () => {
             setInput(e.target.value);
           }}
         />
+        {input.length > 3 && (
+          <AutoComplete data={data} clickHandler={clickHandler} />
+        )}
       </div>
-      <button type="submit">Click me</button>
     </Form>
   );
 };
 
 const Form = styled.form`
-  margin: 0 20rem;
-
+  margin: 0 5rem;
+  position: relative;
   div {
     width: 100%;
     position: relative;
   }
   svg {
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(100%, -50%);
+    top: 1rem;
+    left: 0.5rem;
+    fill: #ccc;
+    width: 2rem;
+    height: 2rem;
+    z-index: 100;
   }
 `;
+
 const Input = styled.input`
+  position: relative;
   border: none;
   background: linear-gradient(35deg, #494949, #313131);
   font-size: 1.5rem;
   color: #fff;
   padding: 1rem 3rem;
-  border: none;
   border-radius: 1rem;
   outline: none;
   width: 100%;
+  margin-bottom: 1px;
 `;
 
 export default Search;
