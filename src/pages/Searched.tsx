@@ -8,34 +8,27 @@ import { fetchedData } from "../Types";
 import { useParams } from "react-router-dom";
 //styled components
 import styled from "styled-components";
+// custom hook
+import { useHttpClient } from "../hooks/http-hook";
 
 const Searched: React.FC = () => {
-  const [data, setData] = useState([] as fetchedData[]);
   const params = useParams().searched;
+  const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
-    const getSearched = async () => {
-      try {
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${params}`
-        );
+    getRecipe(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${params}`,
+      null
+    );
+  }, [getRecipe, params]);
 
-        if (response.ok) {
-          const responseData = await response.json();
-          setData(responseData.results);
-        } else {
-          throw new Error("Something went wrong");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getSearched();
-  }, [setData, params]);
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <Grid>
-      {data.map((recipe) => {
+      {data.map((recipe: fetchedData) => {
         const { title, image, id } = recipe;
         return (
           <CardComponent
