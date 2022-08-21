@@ -11,7 +11,7 @@ type Props = {
 const AutoComplete: React.FC<Props> = ({ data, clickHandler }) => {
   return (
     <Autocomplete>
-      {data.map((suggestion: Suggestions) => {
+      {data.map((suggestion) => {
         return (
           <li key={suggestion.id} onClick={clickHandler}>
             <Link to={`/recipe/${suggestion.id}`}>{suggestion.title}</Link>
@@ -27,7 +27,7 @@ const Autocomplete = styled.ul`
   position: absolute;
   width: 100%;
   z-index: 100;
-
+  top: 4.2rem;
   border-radius: 8px;
   background: linear-gradient(35deg, #494949, #313131);
   li {

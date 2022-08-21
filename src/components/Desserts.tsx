@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import "@splidejs/react-splide/css";
 import { fetchedData } from "../Types";
 import CardComponent from "./Card";
 import { useHttpClient } from "../hooks/http-hook";
 
-const Popular: React.FC = () => {
+//
+
+const Desserts = () => {
   const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
     getRecipe(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`,
-      "popular"
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=dessert`,
+      "dessert"
     );
   }, [getRecipe]);
 
@@ -21,6 +22,15 @@ const Popular: React.FC = () => {
   } else
     return (
       <Wrapper>
+        <Text>
+          <h1>Don't forget to check our dessert recipes!</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis nemo, tempora ipsum excepturi, delectus libero aliquam
+            temporibus ipsam nesciunt incidunt quis voluptate consequatur
+            deserunt, modi alias odit non nostrum. Vitae.
+          </p>
+        </Text>
         <Grid>
           {data.map((recipe: fetchedData) => {
             const { title, image, id } = recipe;
@@ -34,15 +44,6 @@ const Popular: React.FC = () => {
             );
           })}
         </Grid>
-        <Text>
-          <h1>Check our popular picks!</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae minus
-            enim illo voluptatum natus. Voluptatibus eaque alias in corrupti
-            rerum quam, laudantium, quasi, cumque nemo sunt veritatis. Ipsam,
-            debitis sequi?
-          </p>
-        </Text>
       </Wrapper>
     );
 };
@@ -50,7 +51,7 @@ const Popular: React.FC = () => {
 const Wrapper = styled.div`
   border: 1px solid #ddd;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 3rem;
   background: rgb(62, 62, 62);
   background: linear-gradient(
@@ -66,7 +67,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin-left: 3rem;
   gap: 3rem;
   h1 {
     margin-top: 20%;
@@ -90,4 +91,4 @@ const Grid = styled.div`
   max-width: 100%;
 `;
 
-export default Popular;
+export default Desserts;

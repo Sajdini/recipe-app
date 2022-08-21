@@ -1,7 +1,6 @@
 import React from "react";
 
 import styled from "styled-components";
-import { SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -12,23 +11,22 @@ type Props = {
 
 const CardComponent: React.FC<Props> = ({ title, image, link }) => {
   return (
-    <SplideSlide>
-      <Card>
-        <Link to={link}>
-          <p>{title}</p>
-          <Gradient />
-          <img src={image} alt={title} />
-        </Link>
-      </Card>
-    </SplideSlide>
+    <Card>
+      <Link to={link}>
+        <p>{title}</p>
+        <Gradient />
+        <img src={image} alt={title} />
+      </Link>
+    </Card>
   );
 };
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 15rem;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+
   img {
     border-radius: 2rem;
     position: absolute;
@@ -40,7 +38,7 @@ const Card = styled.div`
   }
   p {
     position: absolute;
-    z-index: 10;
+    z-index: 12;
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, 0);
@@ -48,7 +46,7 @@ const Card = styled.div`
     width: 100%;
     text-align: center;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.5rem;
     height: 40%;
     display: flex;
     justify-content: center;
