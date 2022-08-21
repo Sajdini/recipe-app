@@ -3,8 +3,8 @@ import React from "react";
 // styled components
 import styled from "styled-components";
 //react-icons
-import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
-import { GiNoodles, GiChopsticks } from "react-icons/gi";
+import { FaPizzaSlice } from "react-icons/fa";
+import { GiNoodles, GiFriedFish, GiCroissant } from "react-icons/gi";
 // react-router
 import { NavLink } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Categories: React.FC = () => {
         <h4>Italian</h4>
       </Category>
       <Category to="/cuisine/French">
-        <FaHamburger />
+        <GiCroissant />
         <h4>French</h4>
       </Category>
       <Category to="/cuisine/Thai">
@@ -24,7 +24,7 @@ const Categories: React.FC = () => {
         <h4>Thai</h4>
       </Category>
       <Category to="/cuisine/Greek">
-        <GiChopsticks />
+        <GiFriedFish />
         <h4>Greek</h4>
       </Category>
     </CategoriesContainer>
@@ -48,13 +48,14 @@ const Category = styled(NavLink)`
   padding: 0 1rem;
   transition: active 400ms;
   border-radius: 20px;
+  h4 {
+    color: #ddd;
+  }
   svg {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
     color: #fff;
-    background-color: #000;
-    padding: 0.5rem;
-    border-radius: 50%;
   }
 
   &.active {

@@ -1,7 +1,7 @@
 //react hooks
 import React, { useState, useEffect, SyntheticEvent } from "react";
 //react router
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //styled components and icons
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
@@ -57,7 +57,6 @@ const Search = () => {
 };
 
 const Form = styled.form`
-  margin: 0 5rem;
   position: relative;
   div {
     width: 100%;

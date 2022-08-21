@@ -27,27 +27,45 @@ const Searched: React.FC = () => {
   }
 
   return (
-    <Grid>
-      {data.map((recipe: fetchedData) => {
-        const { title, image, id } = recipe;
-        return (
-          <CardComponent
-            key={id}
-            title={title}
-            image={image}
-            link={`/recipe/${id}`}
-          />
-        );
-      })}
-    </Grid>
+    <Container>
+      <Title>
+        <h1>{params} recipes</h1>
+      </Title>
+      <Grid>
+        {data.map((recipe: fetchedData) => {
+          const { title, image, id } = recipe;
+          return (
+            <CardComponent
+              key={id}
+              title={title}
+              image={image}
+              link={`/recipe/${id}`}
+            />
+          );
+        })}
+      </Grid>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  max-width: 90%;
+  margin: 3rem auto;
+  gap: 5rem;
+`;
+const Title = styled.div`
+  h1 {
+    font-size: 4rem;
+  }
+`;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minMax(20rem, 1fr));
   grid-gap: 3rem;
-  margin-inline: 20%;
 `;
 
 export default Searched;

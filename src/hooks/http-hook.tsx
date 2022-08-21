@@ -7,8 +7,8 @@ export const useHttpClient = (type: any) => {
   const getRecipe = useCallback(
     async (httpLink: string, localStorageKey: string | null) => {
       setIsLoading(true);
-    // since this api's free program offers  only 150 requests a day, i decided to cache some of the requests (the static ones) in the local storage
-// here i check if 
+      // since this api's free program offers  only 150 requests a day, i decided to cache some of the requests (the static ones) in the local storage
+      // here i check if
       let check;
       if (localStorageKey) {
         check = localStorage.getItem(localStorageKey);
@@ -31,13 +31,10 @@ export const useHttpClient = (type: any) => {
                   responseData.recipes || responseData.results || responseData
                 )
               );
-              setData(
-                responseData.recipes || responseData.results || responseData
-              );
-            } else
-              setData(
-                responseData.recipes || responseData.results || responseData
-              );
+            }
+            setData(
+              responseData.recipes || responseData.results || responseData
+            );
           } else {
             throw new Error("Something went wrong");
           }
