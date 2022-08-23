@@ -5,7 +5,7 @@ import CardComponent from "../components/Card";
 //types
 import { fetchedData } from "../Types";
 //react router
-<<<<<<< HEAD
+
 import { useParams, useNavigate } from "react-router-dom";
 =======
 import { useParams } from "react-router-dom";
