@@ -5,7 +5,7 @@ import CardComponent from "../components/Card";
 import { fetchedData } from "../Types";
 //dependencies
 import styled from "styled-components";
-import { motion } from "framer-motion";
+
 import { useParams } from "react-router-dom";
 
 const Cuisine: React.FC = () => {

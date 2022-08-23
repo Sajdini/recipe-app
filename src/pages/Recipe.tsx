@@ -84,26 +84,18 @@ const RecipeContainer = styled.div`
     rgba(62, 62, 62, 1) 0%,
     rgba(54, 53, 53, 1) 100%
   );
-<<<<<<< HEAD
+
   @media (max-width: 46.87em) {
     padding: 1rem;
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 const DetailWrapper = styled.div`
   border-radius: 8px;
   padding: 2rem;
   margin: 0 5rem;
-<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(2, minmax(35rem, 1fr));
   grid-column-gap: 2rem;
-=======
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   background-color: #000;
   color: #fff;
   ul {
@@ -114,7 +106,6 @@ const DetailWrapper = styled.div`
     font-size: 1.2rem;
     line-height: 2.5rem;
   }
-<<<<<<< HEAD
 
   // media queries on the grid wrapper
   @media (max-width: 46.87em) {
@@ -125,35 +116,19 @@ const DetailWrapper = styled.div`
 `;
 
 const TitleAndPicture = styled.div`
-=======
-`;
-
-const TitleAndPicture = styled.div`
-  max-width: 50rem;
-
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   h2 {
     margin-bottom: 4rem;
     font-size: 2.2rem;
     color: #fff;
   }
   img {
-<<<<<<< HEAD
     width: 100%;
-=======
-    max-width: 100%;
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
+
     border-radius: 8px;
   }
 `;
 
-<<<<<<< HEAD
-const DescriptionAndList = styled.div`
-  width: 100%;
-`;
-=======
 const DescriptionAndList = styled.div``;
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 
 const Description = styled.div`
   h3 {
@@ -170,14 +145,12 @@ const Buttons = styled.div`
   justify-content: flex-end;
   gap: 2rem;
   margin-right: 1rem;
-<<<<<<< HEAD
+
   // media queries on the buttons
   @media (max-width: 46.87em) {
     justify-content: flex-start;
     margin-top: 2rem;
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 const Button = styled.button`
   padding: 1rem 2rem;
@@ -192,12 +165,6 @@ const Button = styled.button`
   }
 `;
 
-<<<<<<< HEAD
 const Info = styled.div``;
-=======
-const Info = styled.div`
-  max-width: 60rem;
-`;
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 
 export default Recipe;
