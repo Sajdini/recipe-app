@@ -69,6 +69,10 @@ const Container = styled.div`
   max-width: 90%;
   margin: 3rem auto;
   gap: 5rem;
+
+  @media (max-width: 22.75em) {
+    text-align: center;
+  }
 `;
 const Title = styled.div`
   h1 {

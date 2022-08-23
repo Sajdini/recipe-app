@@ -61,6 +61,13 @@ const Wrapper = styled.div`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  // media querry for whole Wrapper
+  @media (max-width: 36em) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1rem;
+  }
 `;
 
 const Text = styled.div`
@@ -80,14 +87,40 @@ const Text = styled.div`
     max-width: 90%;
     line-height: 2.5rem;
   }
+
+  // medua querry for text part
+  @media (max-width: 43.75em) {
+    margin: 0;
+    justify-content: center;
+    h1 {
+      margin-top: 2rem;
+      font-size: 4rem;
+    }
+    p {
+      max-width: 100%;
+    }
+  }
 `;
 
 const Grid = styled.div`
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 
   max-width: 100%;
+
+  //media query for the grid part
+  @media (max-width: 43.75em) {
+    padding-right: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 45rem;
+    overflow: scroll;
+  }
+  @media (max-width: 36em) {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-row: 2;
+  }
 `;
 
 export default Popular;

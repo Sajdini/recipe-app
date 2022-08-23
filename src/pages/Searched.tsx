@@ -5,14 +5,15 @@ import CardComponent from "../components/Card";
 //types
 import { fetchedData } from "../Types";
 //react router
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 //styled components
 import styled from "styled-components";
 // custom hook
 import { useHttpClient } from "../hooks/http-hook";
 
 const Searched: React.FC = () => {
-  const params = useParams().searched;
+  const params = useParams().searched!;
+  const navigate = useNavigate();
   const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
@@ -21,15 +22,19 @@ const Searched: React.FC = () => {
       null
     );
   }, [getRecipe, params]);
-
+  console.log(data);
   if (isLoading) {
     return <h2>Loading...</h2>;
+  }
+
+  if (!isLoading && data.length === 0) {
+    navigate("*");
   }
 
   return (
     <Container>
       <Title>
-        <h1>{params} recipes</h1>
+        <h1>Results for '{params}' </h1>
       </Title>
       <Grid>
         {data.map((recipe: fetchedData) => {
@@ -55,6 +60,10 @@ const Container = styled.div`
   max-width: 90%;
   margin: 3rem auto;
   gap: 5rem;
+
+  @media (max-width: 22.75em) {
+    text-align: center;
+  }
 `;
 const Title = styled.div`
   h1 {
