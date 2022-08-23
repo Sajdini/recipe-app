@@ -5,15 +5,23 @@ import CardComponent from "../components/Card";
 //types
 import { fetchedData } from "../Types";
 //react router
+<<<<<<< HEAD
 import { useParams, useNavigate } from "react-router-dom";
+=======
+import { useParams } from "react-router-dom";
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 //styled components
 import styled from "styled-components";
 // custom hook
 import { useHttpClient } from "../hooks/http-hook";
 
 const Searched: React.FC = () => {
+<<<<<<< HEAD
   const params = useParams().searched!;
   const navigate = useNavigate();
+=======
+  const params = useParams().searched;
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
@@ -22,11 +30,16 @@ const Searched: React.FC = () => {
       null
     );
   }, [getRecipe, params]);
+<<<<<<< HEAD
   console.log(data);
+=======
+
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
 
+<<<<<<< HEAD
   if (!isLoading && data.length === 0) {
     navigate("*");
   }
@@ -35,6 +48,12 @@ const Searched: React.FC = () => {
     <Container>
       <Title>
         <h1>Results for '{params}' </h1>
+=======
+  return (
+    <Container>
+      <Title>
+        <h1>{params} recipes</h1>
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
       </Title>
       <Grid>
         {data.map((recipe: fetchedData) => {
@@ -60,10 +79,13 @@ const Container = styled.div`
   max-width: 90%;
   margin: 3rem auto;
   gap: 5rem;
+<<<<<<< HEAD
 
   @media (max-width: 22.75em) {
     text-align: center;
   }
+=======
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 const Title = styled.div`
   h1 {

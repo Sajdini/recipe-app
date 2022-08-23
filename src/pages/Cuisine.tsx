@@ -69,10 +69,13 @@ const Container = styled.div`
   max-width: 90%;
   margin: 3rem auto;
   gap: 5rem;
+<<<<<<< HEAD
 
   @media (max-width: 22.75em) {
     text-align: center;
   }
+=======
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 const Title = styled.div`
   h1 {

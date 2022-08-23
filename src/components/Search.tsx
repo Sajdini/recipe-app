@@ -12,7 +12,11 @@ import AutoComplete from "./AutoComplete";
 const Search = () => {
   const [input, setInput] = useState("");
   const [data, setData] = useState([] as Suggestions[]);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   const navigate = useNavigate();
 
   // suggestions fetch
@@ -29,13 +33,19 @@ const Search = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.length > 0) navigate("/searched/" + input);
+<<<<<<< HEAD
     setInput("");
+=======
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
     setData([]);
   };
 
   // this clickhandler servers only to close suggestions list
   const clickHandler = (e: SyntheticEvent) => {
+<<<<<<< HEAD
     setInput("");
+=======
+>>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
     setData([]);
   };
 
