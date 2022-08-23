@@ -12,6 +12,7 @@ import AutoComplete from "./AutoComplete";
 const Search = () => {
   const [input, setInput] = useState("");
   const [data, setData] = useState([] as Suggestions[]);
+ 
   const navigate = useNavigate();
 
   // suggestions fetch

@@ -27,3 +27,15 @@ h3 {
 a {
   color: rgb(56, 56, 56);
 }
+
+@media (max-width: 64em) {
+  html {
+    font-size: 54%;
+  }
+}
+
+@media (max-width: 48em) {
+  html {
+    font-size: 48%;
+  }
+}
