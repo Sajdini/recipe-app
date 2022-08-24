@@ -1,13 +1,11 @@
 //react hooks
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //components
 import CardComponent from "../components/Card";
 //types
 import { fetchedData } from "../Types";
 //react router
-
 import { useParams, useNavigate } from "react-router-dom";
-
 //styled components
 import styled from "styled-components";
 // custom hook
@@ -16,7 +14,6 @@ import { useHttpClient } from "../hooks/http-hook";
 const Searched: React.FC = () => {
   const params = useParams().searched!;
   const navigate = useNavigate();
-
   const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);
 
   useEffect(() => {
@@ -25,13 +22,13 @@ const Searched: React.FC = () => {
       null
     );
   }, [getRecipe, params]);
-
+  console.log(data);
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
 
   if (!isLoading && data.length === 0) {
-    navigate("*");
+    navigate("/");
   }
 
   return (
@@ -60,7 +57,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  max-width: 90%;
+  width: 80%;
   margin: 3rem auto;
   gap: 5rem;
 

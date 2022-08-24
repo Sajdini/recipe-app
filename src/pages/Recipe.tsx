@@ -84,14 +84,13 @@ const RecipeContainer = styled.div`
     rgba(62, 62, 62, 1) 0%,
     rgba(54, 53, 53, 1) 100%
   );
-
   @media (max-width: 46.87em) {
     padding: 1rem;
   }
 `;
 const DetailWrapper = styled.div`
   border-radius: 8px;
-  padding: 2rem;
+  padding: 3rem 2rem;
   margin: 0 5rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(35rem, 1fr));
@@ -116,19 +115,28 @@ const DetailWrapper = styled.div`
 `;
 
 const TitleAndPicture = styled.div`
+  width: 100%;
+
   h2 {
-    margin-bottom: 4rem;
+    margin-bottom: 1.2rem;
     font-size: 2.2rem;
     color: #fff;
   }
   img {
     width: 100%;
-
     border-radius: 8px;
+  }
+  @media (max-width: 46.87em) {
+    text-align: center;
+    img {
+      margin: 0 auto;
+    }
   }
 `;
 
-const DescriptionAndList = styled.div``;
+const DescriptionAndList = styled.div`
+  width: 100%;
+`;
 
 const Description = styled.div`
   h3 {
@@ -145,7 +153,6 @@ const Buttons = styled.div`
   justify-content: flex-end;
   gap: 2rem;
   margin-right: 1rem;
-
   // media queries on the buttons
   @media (max-width: 46.87em) {
     justify-content: flex-start;

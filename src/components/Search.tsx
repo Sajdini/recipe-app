@@ -29,7 +29,6 @@ const Search = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.length > 0) navigate("/searched/" + input);
-
     setInput("");
     setData([]);
   };

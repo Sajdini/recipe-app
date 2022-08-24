@@ -61,7 +61,6 @@ const Wrapper = styled.div`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-<<<<<<< HEAD
 
   // media querry for whole Wrapper
   @media (max-width: 36em) {
@@ -69,8 +68,6 @@ const Wrapper = styled.div`
     text-align: center;
     padding: 1rem;
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 
 const Text = styled.div`
@@ -90,7 +87,6 @@ const Text = styled.div`
     max-width: 90%;
     line-height: 2.5rem;
   }
-<<<<<<< HEAD
 
   // medua querry for text part
   @media (max-width: 43.75em) {
@@ -104,21 +100,15 @@ const Text = styled.div`
       max-width: 100%;
     }
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 
 const Grid = styled.div`
   display: grid;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 
   max-width: 100%;
-<<<<<<< HEAD
 
   //media query for the grid part
   @media (max-width: 43.75em) {
@@ -131,8 +121,6 @@ const Grid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     grid-row: 2;
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 
 export default Popular;

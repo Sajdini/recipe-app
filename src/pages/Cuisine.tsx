@@ -5,7 +5,7 @@ import CardComponent from "../components/Card";
 import { fetchedData } from "../Types";
 //dependencies
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 
 const Cuisine: React.FC = () => {
@@ -66,16 +66,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  max-width: 90%;
+  width: 80%;
   margin: 3rem auto;
   gap: 5rem;
-<<<<<<< HEAD
 
   @media (max-width: 22.75em) {
     text-align: center;
   }
-=======
->>>>>>> 6021fd02adf45918f3ce7bdde027a0169f336289
 `;
 const Title = styled.div`
   h1 {
@@ -83,8 +80,8 @@ const Title = styled.div`
   }
 `;
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minMax(20rem, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minMax(20rem, 1fr)) !important;
   grid-gap: 3rem;
 `;
 
