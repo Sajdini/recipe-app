@@ -1,22 +1,26 @@
 // r0eact router
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 //components
-import Home from "./Home";
-import Cuisine from "./Cuisine";
-import Recipe from "./Recipe";
-import Searched from "./Searched";
-import Default from "./Default";
+import Loader from "../components/Loader";
+const Home = React.lazy(() => import("./Home"));
+const Cuisine = React.lazy(() => import("./Cuisine"));
+const Recipe = React.lazy(() => import("./Recipe"));
+const Searched = React.lazy(() => import("./Searched"));
+const Default = React.lazy(() => import("./Default"));
 
 const Pages = () => {
   return (
-    <Routes>
-      <Route path="*" element={<Default />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/cuisine/:type" element={<Cuisine />} />
-      <Route path="/searched/:searched" element={<Searched />} />
-      <Route path="/recipe/:id" element={<Recipe />} />
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="*" element={<Default />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/cuisine/:type" element={<Cuisine />} />
+        <Route path="/searched/:searched" element={<Searched />} />
+        <Route path="/recipe/:id" element={<Recipe />} />
+      </Routes>
+    </Suspense>
   );
 };
 

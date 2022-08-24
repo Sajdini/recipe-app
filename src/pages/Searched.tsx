@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 //components
 import CardComponent from "../components/Card";
 //types
-import { fetchedData } from "../Types";
+import { fetchedData } from "../components/Types";
 //react router
 import { useParams, useNavigate } from "react-router-dom";
 //styled components

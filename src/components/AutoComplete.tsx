@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import { Suggestions } from "../Types";
+import { Suggestions } from "./Types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import "@splidejs/react-splide/css";
-import { fetchedData } from "../Types";
+import { fetchedData } from "./Types";
 import CardComponent from "./Card";
 import { useHttpClient } from "../hooks/http-hook";
 

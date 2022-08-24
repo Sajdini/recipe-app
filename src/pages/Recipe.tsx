@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 //styled components
 import styled from "styled-components";
-import { fetchedData } from "../Types";
+//tyoes
+import { fetchedData } from "../components/Types";
 //custom hooks
 import { useHttpClient } from "../hooks/http-hook";
+//components
+import Loader from "../components/Loader";
 
 const Recipe: React.FC = () => {
   const [activeTab, setActiveTab] = useState("instructions");
@@ -25,7 +28,7 @@ const Recipe: React.FC = () => {
   }, [getRecipe, params]);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <Loader />;
   }
 
   return (

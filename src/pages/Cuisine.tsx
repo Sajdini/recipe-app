@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 //Components
 import CardComponent from "../components/Card";
 //types
-import { fetchedData } from "../Types";
+import { fetchedData } from "../components/Types";
 //dependencies
 import styled from "styled-components";
 import { motion } from "framer-motion";
