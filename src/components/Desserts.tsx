@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import { useEffect } from "react";
 
-import { fetchedData } from "./Types";
-import CardComponent from "./Card";
+// custom hooks
 import { useHttpClient } from "../hooks/http-hook";
+//components
+import CardComponent from "./Card";
+// styled components
+import styled from "styled-components";
+// types
+import { fetchedData } from "./Types";
 
-//
+
+
+
 
 const Desserts = () => {
   const { getRecipe, data, isLoading } = useHttpClient([] as fetchedData[]);

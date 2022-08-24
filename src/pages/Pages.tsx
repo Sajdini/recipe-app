@@ -1,7 +1,7 @@
 // r0eact router
 import React, { Suspense } from "react";
+//react router
 import { Routes, Route } from "react-router-dom";
-
 //components
 import Loader from "../components/Loader";
 const Home = React.lazy(() => import("./Home"));

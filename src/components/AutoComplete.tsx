@@ -1,6 +1,10 @@
 import React, { SyntheticEvent } from "react";
-import { Suggestions } from "./Types";
+
+// react router
 import { Link } from "react-router-dom";
+// types
+import { Suggestions } from "./Types";
+// styled components
 import styled from "styled-components";
 
 type Props = {

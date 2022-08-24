@@ -1,9 +1,10 @@
-import logo from "../logo.svg";
-import { Link, useLocation } from "react-router-dom";
+// react router
+import { Link } from "react-router-dom";
+// styled components
 import styled from "styled-components";
-
-import { AiOutlineHome } from "react-icons/ai";
-import { MdFitnessCenter } from "react-icons/md";
+// logo img
+import logo from "../logo.svg";
+// react icons
 import { BsGithub, BsLinkedin, BsFacebook, BsGoogle } from "react-icons/bs";
 
 const Footer = () => {

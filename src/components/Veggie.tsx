@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
+// custom hook
+import { useHttpClient } from "../hooks/http-hook";
+//components
+import CardComponent from "./Card";
+import Loader from "./Loader";
+//type
+import { fetchedData } from "./Types";
+// styled component
 import styled from "styled-components";
 
-import { fetchedData } from "./Types";
-import CardComponent from "./Card";
-import { useHttpClient } from "../hooks/http-hook";
 
 //
 const Veggie: React.FC = () => {
@@ -16,10 +21,10 @@ const Veggie: React.FC = () => {
     );
   }, [getRecipe]);
 
-  console.log(data);
+  
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <Loader/>;
   } else
     return (
       <Wrapper>

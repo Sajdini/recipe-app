@@ -1,5 +1,5 @@
 //react hooks
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 //components
 import CardComponent from "../components/Card";
 //types

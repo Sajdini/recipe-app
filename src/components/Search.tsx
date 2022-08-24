@@ -51,6 +51,7 @@ const Search = () => {
             setInput(e.target.value);
           }}
         />
+        {/* if we type more than 3 letters in the search, input, a search list will appear with autosuggestions */ }
         {input.length > 3 && (
           <AutoComplete data={data} clickHandler={clickHandler} />
         )}

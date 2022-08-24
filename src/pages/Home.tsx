@@ -2,9 +2,11 @@
 import Veggie from "../components/Veggie";
 import Popular from "../components/Popular";
 import Hero from "../components/Hero";
+import Desserts from "../components/Desserts";
+// styled components
+
 
 import styled from "styled-components";
-import Desserts from "../components/Desserts";
 const Home = () => {
   return (
     <>
