@@ -1,44 +1,60 @@
 import React from "react";
-
+// react router
+import { NavLink } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 //react-icons
 import { FaPizzaSlice, FaHome } from "react-icons/fa";
 import { GiNoodles, GiFriedFish, GiCroissant } from "react-icons/gi";
 
-// react-router
-import { NavLink } from "react-router-dom";
-
 type Props = {
   isVisible: boolean;
+  clickHandler: () => void;
 };
 type DivProps = {
   visible: boolean;
 };
 
-const Categories: React.FC<Props> = ({ isVisible }) => {
+const Categories: React.FC<Props> = ({ isVisible, clickHandler }) => {
+  // instead of hard coding multiple category components, an array of objects with each category details was created to populate a single component
+  const categories = [
+    {
+      link: "/",
+      title: "home",
+      icon: <FaHome />,
+    },
+    {
+      link: "/cuisine/Italian",
+      title: "Italian",
+      icon: <FaPizzaSlice />,
+    },
+    {
+      link: "/cuisine/French",
+      title: "French",
+      icon: <GiCroissant />,
+    },
+    {
+      link: "/cuisine/Thai",
+      title: "Thai",
+      icon: <GiNoodles />,
+    },
+    {
+      link: "/cuisine/Greek",
+      title: "Greek",
+      icon: <GiFriedFish />,
+    },
+  ];
+
   return (
     <CategoriesGroup visible={isVisible}>
-      <Category to="/">
-        <FaHome />
-        <h4>Home</h4>
-      </Category>
-      <Category to="/cuisine/Italian">
-        <FaPizzaSlice />
-        <h4>Italian</h4>
-      </Category>
-      <Category to="/cuisine/French">
-        <GiCroissant />
-        <h4>French</h4>
-      </Category>
-      <Category to="/cuisine/Thai">
-        <GiNoodles />
-        <h4>Thai</h4>
-      </Category>
-      <Category to="/cuisine/Greek">
-        <GiFriedFish />
-        <h4>Greek</h4>
-      </Category>
+      {categories.map((category) => {
+        return (
+          <Category to={category.link} onClick={clickHandler}>
+            {category.icon}
+            <h4>{category.title}</h4>
+          </Category>
+        );
+      })}
     </CategoriesGroup>
   );
 };

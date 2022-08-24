@@ -23,7 +23,12 @@ const Header: React.FC = () => {
             <GiHamburgerMenu
               onClick={() => setVisibility((prevstate) => !prevstate)}
             />
-            <Categories isVisible={visibility} />
+            <Categories
+              isVisible={visibility}
+              clickHandler={() => {
+                setVisibility(false);
+              }}
+            />
           </DropDownMenu>
           <Search />
         </NavAndSearchLinks>
